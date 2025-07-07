@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import "beercss";
 import "material-dynamic-colors";
+
 import { Map } from './map';
 import { Controls } from './controls';
 
@@ -12,22 +14,15 @@ import { Controls } from './controls';
  * @returns 
  */
 export function LeftMenu(props) {
-  const [mapOpen, setMapOpen] = useState(false);
+  const mapOpen = useSelector((state) => state['ui'].mapOpen);
 
-  return (<nav class="left transparent">
-    <header>
-      <button class="circle transparent" onClick={() => setMapOpen(!mapOpen)}>
-        <i>map</i>
-      </button>
-    </header>
-    <a>
-      {
-        mapOpen && 
-        <Map />
-      }
-    </a>
-    <a style={{ marginRight: 'auto' }}>
-      <Controls />
-    </a>
-  </nav>);
+  return (
+    <div style={{ position: 'absolute', left: '1em', top: '0px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ height: '25%' }}>
+        <Map isOpen={mapOpen} />
+      </div>
+      <div style={{ height: '75%', width: '100%', justifyItems: 'center' }}>
+        <Controls />
+      </div>
+    </div>);
 }

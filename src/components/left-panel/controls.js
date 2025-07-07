@@ -12,7 +12,7 @@ export function Controls() {
   const [move, { isLoading: isUpdating }] = useUpdateLocationMutation();
 
   return (
-    <div class="set small-blur" style={{width: '10em'}}>
+    <div class="set small-blur" style={{width: '10em', zIndex: '10'}}>
       <nav class="o-pad">
         <a class="up" href="#" onClick={() => move('w')}></a>
         <a class="right" href="#" onClick={() => move('d')}></a>

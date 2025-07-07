@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query/react'
 import { api } from './api'
+import uiReducer from './ui-slice';
 
 export const store = configureStore({
   reducer: {
+    ui: uiReducer,
     // Add the generated reducer as a specific top-level slice
     [api.reducerPath]: api.reducer,
   },

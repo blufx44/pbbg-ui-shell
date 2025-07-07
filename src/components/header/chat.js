@@ -10,7 +10,7 @@ import "material-dynamic-colors";
  */
 export function Chat(props) {
   return (
-    <dialog class={`top small-blur ${props.isOpen ? 'active' : ''}`}>
+    <dialog class={`top small-blur ${props.isOpen ? 'active' : ''}`} style={{zIndex: '101'}}>
       <h5>Top</h5>
       <div>Some text here</div>
       <nav class="right-align">
