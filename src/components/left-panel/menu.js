@@ -15,9 +15,10 @@ import { Controls } from './controls';
  */
 export function LeftMenu(props) {
   const mapOpen = useSelector((state) => state['ui'].mapOpen);
+  const isMenuLeft = useSelector((state) => state['ui'].isMenuLeft);
 
   return (
-    <div style={{ position: 'absolute', left: '1em', top: '0px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ position: 'absolute', right: !isMenuLeft ? '' : '1em', left: !isMenuLeft ? '1em' : '', top: '0px', height: '100%', display: 'flex', flexDirection: 'column' }}>
       <div style={{ height: '25%' }}>
         <Map isOpen={mapOpen} />
       </div>

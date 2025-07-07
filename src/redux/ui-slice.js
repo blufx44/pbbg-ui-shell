@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   globalOpen: false,
-  mapOpen: true
+  mapOpen: true,
+  isMenuLeft: false
 }
 
 export const uiSlice = createSlice({
@@ -15,10 +16,13 @@ export const uiSlice = createSlice({
     setMapOpen: (state) => {
       state.mapOpen = !state.mapOpen;
     },
+    flipMenus: (state) => {
+      state.isMenuLeft = !state.isMenuLeft;
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setModal, setMapOpen } = uiSlice.actions
+export const { setModal, setMapOpen, flipMenus } = uiSlice.actions
 
 export default uiSlice.reducer;

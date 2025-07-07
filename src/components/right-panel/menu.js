@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import "beercss";
 import "material-dynamic-colors";
+
 import { Inventory } from './inventory';
 import { Quests } from './quests';
 import { Actions } from './actions';
@@ -12,11 +14,12 @@ import { Character } from './character';
  * 
  * @returns 
  */
-export function Menu() {
+export function Menu(props) {
   const [active, setActive] = useState('Actions');
+  const isMenuLeft = useSelector((state) => state['ui'].isMenuLeft);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row-reverse', backgroundColor: 'Menu', height: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: isMenuLeft ? 'row' : 'row-reverse', backgroundColor: 'Menu', height: '100%' }}>
       <div class="tabs vertical" style={{ height: '100%', justifyContent: 'start' }}>
         <a class={`vertical ${active === 'Actions' ? 'active' : ''}`} onClick={() => setActive('Actions')}>
           <img class="circle" src={''} />
