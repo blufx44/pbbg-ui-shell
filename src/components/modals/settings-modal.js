@@ -3,7 +3,7 @@ import "beercss";
 import "material-dynamic-colors";
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setModal, flipMenus } from '../../redux/ui-slice';
+import { setModal, flipMenus, setMoveDPad } from '../../redux/ui-slice';
 
 /**
  * Base UI component for the Inventory.
@@ -13,6 +13,7 @@ import { setModal, flipMenus } from '../../redux/ui-slice';
 export function SettingsModal() {
   const dispatch = useDispatch();
   const isMenuLeft = useSelector((state) => state['ui'].isMenuLeft);
+  const isMovingDPad = useSelector((state) => state['ui'].isMovingDPad);
 
   useEffect(() => {
     dispatch(setModal(true));
@@ -36,6 +37,10 @@ export function SettingsModal() {
             <span></span>
           </label>
           <i>music_note</i>
+        </nav>
+        <nav class='padding'>
+          <span style={{ marginRight: '1em' }}>Move DPad:</span>
+          <button onClick={() => dispatch(setMoveDPad(!isMovingDPad))}>{isMovingDPad ? <i>check</i> : <i>edit</i>}</button>
         </nav>
         <nav class='padding'>
           <label class="checkbox icon">

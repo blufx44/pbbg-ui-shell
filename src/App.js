@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   return (
-    <div class="App" style={{ display: 'flex', flexDirection: 'column' }} onClick={() => dispatch(setModal(false))}>
+    <div class="App" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }} onClick={() => dispatch(setModal(false))}>
       <Header />
       <div class='responsive grid' style={{ height: '100%', paddingBottom: '1em', paddingLeft: '1em', paddingRight: '1em' }}>
         <LeftMenu />

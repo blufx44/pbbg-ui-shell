@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Chat } from './chat';
 import { SettingsModal } from "../modals/settings-modal";
-import { setModal, setMapOpen } from '../../redux/ui-slice';
+import { setModal, setMapOpen, setMoveDPad } from '../../redux/ui-slice';
 import { AccountMenu } from "./account-menu";
 import { AccountModal } from "../modals/account-modal";
 
@@ -22,6 +22,7 @@ export function Header() {
     if (!globalOpen && !preventOverride) {
       setAccountModalOpen(false);
       setSettingsModalOpen(false);
+      dispatch(setMoveDPad(false));
       setMenuOpen(false);
     }
 
@@ -48,6 +49,7 @@ export function Header() {
       setPreventOverride(true);
       setAccountModalOpen(false);
       setSettingsModalOpen(false);
+      dispatch(setMoveDPad(false));
     }
 
     setMenuOpen(!menuOpen);
