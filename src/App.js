@@ -31,19 +31,21 @@ function App() {
   return (
     <div class="App" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }} onClick={() => dispatch(setModal(false))}>
       <Header />
-      <div class='responsive grid' style={{ height: '100%', paddingBottom: '1em', paddingLeft: '1em', paddingRight: '1em' }}>
+      <div class='responsive' style={{
+        height: '100%',
+        paddingBottom: '1em',
+        paddingLeft: '1em',
+        paddingRight: '1em',
+        display: 'flex',
+        flexDirection: isMenuLeft ? 'row' : 'row-reverse'
+      }}>
         <LeftMenu />
-        {isMenuLeft && <div class='s3'>
-          <Menu />
-        </div>}
-        <div class={`s9`}>
+        <Menu />
+        <div>
           <div style={{ top: 0, left: 0, height: '100%', width: '100%' }}>
             <canvas width={'100%'} ></canvas>
           </div>
         </div>
-        {!isMenuLeft && <div class='s3'>
-          <Menu />
-        </div>}
       </div>
     </div >
   );
