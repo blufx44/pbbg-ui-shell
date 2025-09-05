@@ -82,7 +82,7 @@ export function Header() {
       </nav>
       <Chat isOpen={chatOpen} onClose={() => setChatOpen(false)} />
       {settingsModalOpen && <SettingsModal />}
-      {accountModalOpen && <AccountModal />}
+      {accountModalOpen && <AccountModal isGuest={false} name={'test'}/>}
     </header>
   );
 }
